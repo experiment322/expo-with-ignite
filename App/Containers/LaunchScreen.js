@@ -8,7 +8,6 @@ import { Images } from '../Themes'
 import styles from './Styles/LaunchScreenStyles'
 
 export default class LaunchScreen extends React.Component {
-
   render () {
     return (
       <View style={styles.mainContainer}>
@@ -19,9 +18,9 @@ export default class LaunchScreen extends React.Component {
           </View>
 
           <View style={styles.section} >
-            <Image source={Images.ready} />
+            <Image source={Images.ready} style={styles.sectionImage} />
             <Text style={styles.sectionText}>
-              {"This probably isn't what your app is going to look like. Unless your designer handed you this screen and, in that case, congrats! You're ready to ship. For everyone else, this is where you'll see a live preview of your fully functioning app using Ignite."}
+              This probably isn't what your app is going to look like. Unless your designer handed you this screen and, in that case, congrats! You're ready to ship. For everyone else, this is where you'll see a live preview of your fully functioning app using Ignite.
             </Text>
           </View>
 

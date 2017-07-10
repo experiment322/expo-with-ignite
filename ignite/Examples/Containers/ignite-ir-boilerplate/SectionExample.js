@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import styles from './Styles/SectionExampleStyle'
 
 class ListviewSectionsExample extends React.Component {
-
   constructor (props) {
     super(props)
 
@@ -91,9 +90,9 @@ class ListviewSectionsExample extends React.Component {
   * e.g.
     componentWillReceiveProps (newProps) {
       if (newProps.someData) {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRowsAndSections(newProps.someData)
-        })
+        this.setState(prevState => ({
+          dataSource: prevState.dataSource.cloneWithRowsAndSections(newProps.someData)
+        }))
       }
     }
   *************************************************************/

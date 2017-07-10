@@ -12,6 +12,9 @@ export default StyleSheet.create({
   sectionHeader: {
     ...ApplicationStyles.darkLabel
   },
+  mainContainer: {
+    paddingHorizontal: Metrics.doubleBaseMargin
+  },
   colorsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',

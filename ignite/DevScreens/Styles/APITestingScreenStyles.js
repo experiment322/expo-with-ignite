@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles } from '../DevTheme/'
+import { ApplicationStyles, Metrics } from '../DevTheme/'
 
 export default StyleSheet.create({
-  ...ApplicationStyles.screen
+  ...ApplicationStyles.screen,
+  mainContainer: {
+    paddingHorizontal: Metrics.doubleBaseMargin
+  }
 })

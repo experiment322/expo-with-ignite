@@ -14,7 +14,6 @@ const types = R.keys(Fonts.type)
 const fontStyles = R.keys(Fonts.style)
 
 export default class ThemeScreen extends React.Component {
-
   renderColor (color: string) {
     return (
       <View style={styles.colorContainer} key={`${color}Container`}>
@@ -53,7 +52,7 @@ export default class ThemeScreen extends React.Component {
 
   render () {
     return (
-      <View style={styles.mainContainer}>
+      <View style={[styles.container, styles.mainContainer]}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
         <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{
           position: 'absolute',
@@ -63,7 +62,7 @@ export default class ThemeScreen extends React.Component {
         }}>
           <Image source={Images.backButton} />
         </TouchableOpacity>
-        <ScrollView style={styles.container}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
           <View style={{alignItems: 'center', paddingTop: 60}}>
             <Image source={Images.theme} style={styles.logo} />
             <Text style={styles.titleText}>Themes</Text>

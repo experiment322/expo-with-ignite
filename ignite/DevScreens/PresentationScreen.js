@@ -14,7 +14,6 @@ import FaqScreen from './FaqScreen'
 import styles from './Styles/PresentationScreenStyles'
 
 class PresentationScreen extends React.Component {
-
   openComponents = () => {
     this.props.navigation.navigate('ComponentExamplesScreen')
   }
@@ -29,6 +28,10 @@ class PresentationScreen extends React.Component {
 
   openTheme = () => {
     this.props.navigation.navigate('ThemeScreen')
+  }
+
+  openDevice = () => {
+    this.props.navigation.navigate('FaqScreen')
   }
 
   openFaq = () => {
@@ -65,7 +68,7 @@ class PresentationScreen extends React.Component {
             <ButtonBox onPress={this.openTheme} image={Images.theme} text='Theme' />
           </View>
           <View style={styles.buttonsContainer}>
-            <ButtonBox style={styles.deviceButton} image={Images.deviceInfo} text='Device Info N/A' />
+            <ButtonBox onPress={this.openDevice} style={styles.deviceButton} image={Images.deviceInfo} text='Device Info' />
             <ButtonBox onPress={this.openFaq} style={styles.usageButton} image={Images.faq} text='FAQ' />
           </View>
         </ScrollView>
@@ -85,6 +88,10 @@ export default StackNavigator({
   ThemeScreen: {screen: ThemeScreen},
   FaqScreen: {screen: FaqScreen}
 }, {
+  cardStyle: {
+    opacity: 1,
+    backgroundColor: '#3e243f'
+  },
   initialRouteName: 'PresentationScreen',
   headerMode: 'none',
   // Keeping this here for future when we can make

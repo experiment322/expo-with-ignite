@@ -1,4 +1,6 @@
 import '../Config'
+import DebugConfig from '../Config/DebugConfig'
+import { Font } from 'expo'
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import RootContainer from './RootContainer'
@@ -17,7 +19,24 @@ const store = createStore()
  * We separate like this to play nice with React Native's hot reloading.
  */
 class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      loading: true
+    }
+  }
+  componentDidMount () {
+    Font.loadAsync({
+      'Avenir-Book': require('../../assets/fonts/Lato-Regular.ttf'),
+      'Avenir-Black': require('../../assets/fonts/Lato-Black.ttf'),
+      'HelveticaNeue-Italic': require('../../assets/fonts/LiberationSans-Italic.ttf')
+    }).then(() => {
+      this.setState({loading: false})
+    })
+  }
   render () {
+    const { loading } = this.state
+    if (loading) return null
     return (
       <Provider store={store}>
         <RootContainer />
@@ -26,4 +45,7 @@ class App extends Component {
   }
 }
 
-export default App
+// allow reactotron overlay for fast design in dev mode
+export default DebugConfig.useReactotron
+  ? console.tron.overlay(App)
+  : App
